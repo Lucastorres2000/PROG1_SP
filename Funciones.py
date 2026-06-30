@@ -237,7 +237,7 @@ def cargar_alumnos(lista_alumnos : list ) :
     alumno_aux['legajo'] = pedir_int("Ingrese legajo :  ") 
     
     if alumno_aux['legajo'] != False :   
-        alumno_aux["ape_nom"] = pedir_str("Ingrese apellido y Nombre :  ").capitalize
+        alumno_aux["ape_nom"] = pedir_str("Ingrese apellido y Nombre :  ")
         
         if alumno_aux["ape_nom"] != False :
             alumno_aux["genero"] = pedir_genero ()
