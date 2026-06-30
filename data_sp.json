@@ -5,7 +5,7 @@
         "genero": "M",
         "pp": 6,
         "sp": 7,
-        "prom": 0
+        "prom": 6.5
     },
     {
         "legajo": 2,
@@ -13,7 +13,7 @@
         "genero": "F",
         "pp": 9,
         "sp": 6,
-        "prom": 0
+        "prom": 7.5
     },
     {
         "legajo": 3,
@@ -21,7 +21,7 @@
         "genero": "X",
         "pp": 7,
         "sp": 10,
-        "prom": 0
+        "prom": 8.5
     },
     {
         "legajo": 25,
@@ -29,6 +29,6 @@
         "genero": "f",
         "pp": 5.0,
         "sp": 10.0,
-        "prom": 0
+        "prom": 7.5
     }
 ]

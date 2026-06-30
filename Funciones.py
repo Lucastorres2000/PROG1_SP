@@ -208,10 +208,21 @@ def titulos() :
 
 #--------------------------------------------------------------------------------------------------------------------------------------------------
 
+'''
+    Recibe un alumno y lo muestra 
+    
+    parametro : lista_alumno lista de alumnos , contiene una lista de diccionarios indicando alumnos
+
+'''
 def mostrar_un_alumno(alumno : dict ) :
     print(f"#-    {alumno['legajo']:<7}{" | "}{alumno['ape_nom']:<15}{" | "}{alumno['genero']:<10}{" | "}{alumno['pp']:<10}{" | "}{alumno['sp']:<10}{" | "}{alumno['prom']:<10}")
 
 #--------------------------------------------------------------------------------------------------------------------------------------------------
+'''
+    Recorre una lista de alumnos y llama a mostar_un_alumno() pasandole cada alumno 
+    
+    parametro : lista_alumno lista de alumnos , contiene una lista de diccionarios indicando alumnos
+'''
 
 def mostrar_lista_alumnos(lista_alumnos: list ) :
     titulos()
