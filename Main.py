@@ -4,48 +4,84 @@ import json
 from Funciones import * 
 lista_alumnos_main = []
 salir_menu = False 
+validar_carga = False 
 
 while salir_menu == False:
     opcion = 0 
-    print("\t\t\t")
-    print("#------------------------------------#\t")
+    print("\n")
+    print("#------------------------------------#")
     print("#------ 1 ) Leer datos . ")
     print("#------ 2 ) Cargar datos .")
     print("#------ 3 ) Mostrar datos .")
     print("#------ 4 ) Calcular promedio .")
     print("#------ 5 ) Ordenar por promedio .")
-    print("#------ 7 ) Salir .")
-    print("#------------------------------------#\t\t\t")
+    print("#------ 6 ) Buscar alumno . ")
+    print("#------ 7 ) Exportar .json  . ")
+    print("#------ 7 ) Exportar .csv  . ")
+    print("#------ 10 ) Salir .")
+    print("#------------------------------------#\n")
     opcion = int(input("# --- OPCION --->  "))
-    print("\t\t\t")
+    print("\n")
     match opcion :
         
         case 1 : 
-            with open("data_sp.json","r") as archivo_json :
-                datos = json.load(archivo_json)
-            lista_alumnos_main = datos["estudiantes"]
-            print("#------ CARGADO CORRECTAMENTE ------#  \t\t")
+            lista_alumnos_main = bajar_json()
+            validar_carga = True
+            print("\n#------ !!! CARGADO CORRECTAMENTE !!! ------#\n")
 
         case 2 :
             cargar_alumnos(lista_alumnos_main)
-            print("#------ GUARDADO CORRECTAMENTE ------#  \t\t")
+            validar_carga = True
+            print("\n#------ !!! GUARDADO CORRECTAMENTE  !!! ------#\n")
             
-            pass
-        
         case 3 : 
-            mostrar_lista_alumnos(lista_alumnos_main)
+            if validar_carga == True : 
+                mostrar_lista_alumnos(lista_alumnos_main)
+                
+            else : 
+                print("\n#-------- !!! PRIMERO DEBE CARGAR UN ALUMNO !!! -------- #\n")
             
         case 4 :
-            calcular_promedio(lista_alumnos_main)
-            print("#------ # CALCULANDO .... # ------#  \t\t")                                                      
+            if validar_carga == True :
+                calcular_promedio(lista_alumnos_main)
+                print("\n#------ # !!! CALCULANDO !!! # ------#")   
+                
+            else : 
+                print("\n# -------- !!! PRIMERO DEBE CARGAR UN ALUMNO !!! -------- #\n")                                                   
             
         case 5 : 
-            ordenar_por_promedio(lista_alumnos_main)
-            print("#------ # ORDENANDO .... # ------#  \t\t") 
+            if validar_carga == True :
+                ordenar_por_promedio(lista_alumnos_main)
+                print("\n#------ # ORDENANDO .... # ------# \n") 
+            else : 
+                print("\n# -------- !!! PRIMERO DEBE CARGAR UN ALUMNO !!! -------- #\n")
             
         case 6 :
+            if validar_carga == True :
                 buscar_alumno(lista_alumnos_main)
-            
+            else : 
+                print("\n# -------- !!! PRIMERO DEBE CARGAR UN ALUMNO !!! -------- #\n")
+        
         case 7 : 
-            print("---------- # CERRANDO SISTEMA # ----------")
+            if validar_carga == True :
+                subir_json(lista_alumnos_main)
+                print("\n#------ !!! GUARDADO CORRECTAMENTE  !!! ------#\n")
+            else : 
+                print("\n# -------- !!! PRIMERO DEBE CARGAR UN ALUMNO !!! -------- #\n")
+        
+        case 8: 
+            if validar_carga == True :
+                subir_csv (lista_alumnos_main)
+            else : 
+                print("\n# -------- !!! PRIMERO DEBE CARGAR UN ALUMNO !!! -------- #\n")
+            
+        case 9 : 
+            if validar_carga == True :
+                aux_mejor_promedio = buscar_mayor(lista_alumnos_main)
+                mostrar_un_alumno(aux_mejor_promedio)
+            else : 
+                print("\n# -------- !!! PRIMERO DEBE CARGAR UN ALUMNO !!! -------- #\n")
+
+        case 10 : 
+            print("\n!!!!!!!!---------- # CERRANDO SISTEMA # ----------!!!!!!!!\n")
             salir_menu = True 
