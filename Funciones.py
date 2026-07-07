@@ -44,6 +44,7 @@ def pedir_float_rango(mensaje:str ,num_min:int ,num_max:int ) -> float :
 #--------------------------------------------------------------------------------------------------------------------------------------------------
 
 '''
+a
     Pide un numero al usuario.
     Itera con un maximo de 3 intentos pidiendo un numero 
     valida que sea un numero flotante  
